@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e -x
+# set -e -x
 
 # 0. Check
 CURRENT_DIR="$(pwd)"
@@ -12,17 +12,17 @@ if [ ! -f "$SOURCE_DIR/llvm-project/llvm/CMakeLists.txt" ]; then
 fi
 
 # Parse arguments
-install_prefix=""
-platform=""
-build_config=""
+install_prefix="llvm-10.0.0-x86_64-apple-darwin-10.13.6"
+platform="local"
+build_config="assert"
 arch="x86"
 num_jobs=8
 
 usage() {
   echo "Usage: bash build_llvm.sh -o INSTALL_PREFIX -p PLATFORM -c CONFIG [-a ARCH] [-j NUM_JOBS]"
-  echo "Ex: bash build_llvm.sh -o llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04 -p docker_ubuntu_18.04 -c assert -j 16"
+  echo "Ex: bash build_llvm.bash -o llvm-10.0.0-x86_64-apple-darwin-10.13.6 -p docker_apple-darwin-10.13.6 -c assert -j 16"
   echo "INSTALL_PREFIX = <string> # \${INSTALL_PREFIX}.tar.xz is created"
-  echo "PLATFORM       = {local|docker_ubuntu_18.04|docker_centos7}"
+  echo "PLATFORM       = {local|docker_apple-darwin-10.13.6|docker_centos7}"
   echo "CONFIG         = {release|assert|debug}"
   echo "ARCH           = {x86|arm64}"
   echo "NUM_JOBS       = {1|2|3|...}"
