@@ -12,15 +12,15 @@ if [ ! -f "$SOURCE_DIR/llvm-project/llvm/CMakeLists.txt" ]; then
 fi
 
 # Parse arguments
-install_prefix="llvm-10.0.0-x86_64-apple-darwin-10.13.6"
+install_prefix="llvm-15.0.0-x86_64-apple-darwin-10.13.6"
 platform="local"
 build_config="assert"
 arch="x86"
-num_jobs=8
+num_jobs=12
 
 usage() {
   echo "Usage: bash build_llvm.sh -o INSTALL_PREFIX -p PLATFORM -c CONFIG [-a ARCH] [-j NUM_JOBS]"
-  echo "Ex: bash build_llvm.bash -o llvm-10.0.0-x86_64-apple-darwin-10.13.6 -p docker_apple-darwin-10.13.6 -c assert -j 16"
+  echo "Ex: bash build_llvm.bash -o llvm-15.0.0-x86_64-apple-darwin-10.13.6 -p docker_apple-darwin-10.13.6 -c assert -j 16"
   echo "INSTALL_PREFIX = <string> # \${INSTALL_PREFIX}.tar.xz is created"
   echo "PLATFORM       = {local|docker_apple-darwin-10.13.6|docker_centos7}"
   echo "CONFIG         = {release|assert|debug}"
